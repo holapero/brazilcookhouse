@@ -1,11 +1,8 @@
 class ChefsController < ApplicationController
-
+  before_action :set_params, only:[:show, :edit]
 
   def new
     @chef = Chef.new
-  end
-
-  def show
   end
 
   def create
@@ -17,22 +14,25 @@ class ChefsController < ApplicationController
       flash[:error] = 'Chef #{@chef.humanize} was not saved'
       render :new
     end
-    raise @chef.inspect
+  end
+
+  def show
   end
 
   def index
 
   end
 
-  def update
-
+  def edit
   end
 
   private
 
   def chef_params
     params.require(:chef).permit(:name, :show, :specialty, :avatar)
-
+  end
+  def set_params
+    @chef = Chef.find(params[:id])
   end
 end
 
