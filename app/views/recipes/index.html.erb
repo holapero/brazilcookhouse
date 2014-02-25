@@ -1,0 +1,24 @@
+<h1>All the recipes I know about </h1>
+<h2>Add a recipe <%=link_to('New recipe', new_recipe_path)%></h2>
+<table>
+  <thead>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Cook Time</th>
+    <th>Instructions</th>
+    <th>Ingredients</th>
+    <th>Image</th>
+  </thead>  
+  <tbody>
+    <%@recipe.each do |recipe|%>
+    <tr>
+      <td><%= recipe.title %></td>
+      <td><%= recipe.description %></td>
+      <td><%= recipe.cook_time%></td>
+      <td><%= recipe.instructions%></td>
+      <td><%= recipe.ingredients%></td>
+      <td><%= image_tag recipe.picture %></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>

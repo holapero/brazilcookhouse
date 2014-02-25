@@ -1,0 +1,20 @@
+<h1>ALL the chefs I know about </h1>
+<h2>Add a chef <%=link_to('New Chef', new_chef_path)%></h2>
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Show</th>
+    <th>Specialty</th>
+     <th>Picture</th>
+  </thead>  
+  <tbody>
+    <%@chef.each do |chef|%>
+    <tr>
+      <td><%= chef.name.humanize %></td>
+      <td><%= chef.show %></td>
+      <td><%= chef.specialty%></td>
+      <td><%= image_tag chef.avatar %></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>

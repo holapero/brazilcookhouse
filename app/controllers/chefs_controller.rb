@@ -1,5 +1,5 @@
 class ChefsController < ApplicationController
-  before_action :set_params, only:[:show, :edit]
+  before_action :set_params, only:[:show, :edit, :update]
 
   def new
     @chef = Chef.new
@@ -16,14 +16,25 @@ class ChefsController < ApplicationController
     end
   end
 
+  def index
+    @chef = Chef.all
+  end
+
   def show
   end
 
-  def index
-
+  def edit
   end
 
-  def edit
+  def update
+    @chef.update_attributes(chef_params)
+    if @chef.save
+      flash[:success] = 'Chef #{@chef.humanize} was saved'
+      redirect_to chef_path(@chef.id)
+    else
+      flash[:error] = 'Chef #{@chef.humanize} was not saved'
+      render :new
+    end
   end
 
   private
