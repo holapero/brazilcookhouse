@@ -18,6 +18,9 @@
       <td><%= recipe.instructions%></td>
       <td><%= recipe.ingredients%></td>
       <td><%= image_tag recipe.picture %></td>
+      <td><%= link_to('view', recipe_path(recipe.id) ) %></td>
+      <td><%= link_to('edit', edit_recipe_path(recipe.id))%></td>
+      <td><%= link_to('delete',recipe_path(recipe.id), method: :delete, confirm: 'Are you sure')%></td>
     </tr>
     <%end%>
   </tbody>

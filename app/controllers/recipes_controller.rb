@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
 
-  before_action :set_params, only:[:show, :edit, :update]
+  before_action :set_params, only:[:show, :edit, :update, :destroy]
 
   def new
     @recipe = Recipe.new
@@ -26,6 +26,12 @@ class RecipesController < ApplicationController
   end
 
   def edit
+  end
+
+  def destroy
+    @recipe.destroy
+    flash[:notice] = "The recipe was remove"
+    redirect_to recipes_path
   end
 
   def update

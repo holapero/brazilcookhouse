@@ -14,6 +14,9 @@
       <td><%= chef.show %></td>
       <td><%= chef.specialty%></td>
       <td><%= image_tag chef.avatar %></td>
+      <td><%= link_to('view', chef_path(chef.id) ) %></td>
+      <td><%= link_to('edit', chef_path(chef.id))%></td>
+      <td><%= link_to('delete',chef_path(chef.id), method: :delete, confirm: 'Are you sure')%></td>
     </tr>
     <%end%>
   </tbody>

@@ -1,5 +1,5 @@
 class ChefsController < ApplicationController
-  before_action :set_params, only:[:show, :edit, :update]
+  before_action :set_params, only:[:show, :edit, :update, :destroy]
 
   def new
     @chef = Chef.new
@@ -30,7 +30,10 @@ class ChefsController < ApplicationController
     @chef.update_attributes(params[:chef])
   end
 
-  def delete
+  def destroy
+    @chef.destroy
+    flash[:notice] = "The recipe was remove"
+    redirect_to chefs_path
   end
 
   private
