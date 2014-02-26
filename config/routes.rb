@@ -1,5 +1,5 @@
 BrazillianCookery::Application.routes.draw do
   resources :chefs
   resources :recipes
-  resources :static_pages
+  get '/', => 'static_pages#home'
 end
