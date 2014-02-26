@@ -16,25 +16,21 @@ class ChefsController < ApplicationController
     end
   end
 
-  def index
-    @chef = Chef.all
+  def show
   end
 
-  def show
+  def index
+
   end
 
   def edit
   end
 
   def update
-    @chef.update_attributes(chef_params)
-    if @chef.save
-      flash[:success] = 'Chef #{@chef.humanize} was saved'
-      redirect_to chef_path(@chef.id)
-    else
-      flash[:error] = 'Chef #{@chef.humanize} was not saved'
-      render :new
-    end
+    @chef.update_attributes(params[:chef])
+  end
+
+  def delete
   end
 
   private
