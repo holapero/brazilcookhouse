@@ -20,7 +20,7 @@ class ChefsController < ApplicationController
   end
 
   def index
-
+    @chef = Chef.all
   end
 
   def edit
