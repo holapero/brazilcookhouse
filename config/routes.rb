@@ -4,5 +4,6 @@ BrazillianCookery::Application.routes.draw do
   resources :users, only:[:new, :create]
   root 'static_pages#home'
   get 'about' => 'static_pages#about'
+  delete '/logout' => 'sessions#logout'
 
 end
