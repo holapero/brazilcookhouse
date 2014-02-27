@@ -12,11 +12,11 @@
     <%= content_tag :div, msg, class: name%>
     <%end%>
     <%if logged_in? %>
-      Welcome <%= @current_user.name %>
-      <%= link_to("logout", logout_path, class:'btn btn-info') %>
-      <%= link_to("Sign Up",new_user_path , class:'btn btn-success') %>
+      Welcome <%= current_user.name %>
+      <%= link_to("logout", logout_path, method: :delete) %>
     <% else %>
-      <%= link_to("login", , class:'btn btn-danger') %>
+      <%= link_to("login",login_path) %>
+      <%= link_to("Sign Up",new_user_path) %>
     <% end %>
     <%= yield %>
     <footer>
