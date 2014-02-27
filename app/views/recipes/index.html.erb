@@ -1,5 +1,4 @@
-<h1>All the recipes I know about </h1>
-<h2>Add a recipe <%=link_to('New recipe', new_recipe_path)%></h2>
+<h1 id="heading">Welcome, Check out our Recipes</h1>
 <table>
   <thead>
     <th>Title</th>
@@ -13,10 +12,11 @@
     <%@recipe.each do |recipe|%>
     <tr>
       <td><%= recipe.title %></td>
-      <td><%= recipe.description %></td>
-      <td><%= recipe.cook_time%></td>
-      <td><%= recipe.instructions%></td>
-      <td><%= recipe.ingredients%></td>
+      <hr class='vertical'>
+      <td class="about"><%= recipe.description %></td>
+      <td class="about"><%= recipe.cook_time%></td>
+      <td class="about"><%= recipe.instructions%></td>
+      <td class="about"><%= recipe.ingredients%></td>
       <td><%= image_tag recipe.picture %></td>
       <td><%= link_to('view', recipe_path(recipe.id) ) %></td>
       <td><%= link_to('edit', edit_recipe_path(recipe.id))%></td>
@@ -25,3 +25,4 @@
     <%end%>
   </tbody>
 </table>
+ <h4>Want to add a recipe ?  <%=link_to('Click here', new_recipe_path)%></h4>

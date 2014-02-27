@@ -10,10 +10,10 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     if @recipe.save
 
-      flash[:success] = 'recipe #{@recipe.title} was saved'
+      flash[:success] = 'The recipe was saved'
       redirect_to recipe_path(@recipe.id)
     else
-      flash[:error] = 'recipe #{@recipe.title} was not saved'
+      flash[:error] = 'The recipe was not saved'
       render :new
     end
   end
@@ -30,17 +30,17 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe.destroy
-    flash[:notice] = "The recipe was remove"
+    flash[:notice] = "The recipe was removed"
     redirect_to recipes_path
   end
 
   def update
     @recipe.update_attributes(recipe_params)
     if @recipe.save
-      flash[:success] = 'recipe #{@recipe.title} was saved'
+      flash[:success] = 'Recipe was saved'
       redirect_to recipe_path(@recipe.id)
     else
-      flash[:error] = 'recipe #{@recipe.title} was not saved'
+      flash[:error] = 'Recipe was not saved'
       render :new
     end
   end
@@ -48,7 +48,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:title, :cook_time, :description, :instructions, :picture, :ingredients)
+    params.require(:recipe).permit(:title, :cook_time, :description, :instructions, :picture, :ingredients, :chef_id, :updated_at, :created_at)
   end
   def set_params
     @recipe = Recipe.find(params[:id])
